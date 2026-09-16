@@ -1,0 +1,61 @@
+
+print("Hello, welcome to the number detector! Please enter a value and I will tell you if it's a number or not. When you are done, please type 'exit' to exit the program.")
+
+while True:
+    user_input = input("Please enter a value (or 'exit' to quit): ")
+    if user_input == 'exit':
+        print("Thank you for using the number detector!")
+        break #ends the loop if the user types 'exit'
+
+    if user_input.isspace(): #this will check if the input is empty or only whitespace.
+        print("You didn't enter anything, please try again.")
+
+        continue #this will skip the rest of the loop and go back to the beginning of the loop if the user input is empty.
+
+    filtered_input = user_input.lower() # this will convert the input to lowercase, so that the program can recognize the input regardless of case.
+    if user_input == "number" or user_input == "numbers":#checks if a user tried to trick the program using a simple trick.
+        print("I see what you did there, it contains a number.")
+        continue #this will skip the rest of the loop and go back to the beginning of the loop if the user input is "number" or "numbers".
+    filtered_input = filtered_input.replace(' ', '') # this removes any whitespace from the input, so that the program can recognize the input regardless of whitespace.
+    if filtered_input.isspace(): #this will check if the input is empty put it right after the replacement as if it happens past hyphens it is incorrect.
+            print("You didn't enter anything, please try again.")
+            continue #this will skip the rest of the loop and go back to the beginning of the loop if the user input is empty.
+    filtered_input = filtered_input.replace('-','') 
+    # this will remove any hyphens from the input, so that the program can recognize the input regardless of hyphens Ex(Dates,phone numbers).
+   
+    if filtered_input == "wow" or filtered_input == "amazing" or filtered_input == "incredible":
+        print('suprising isnt it? (not a number but thanks for appriciating the program)')
+        continue
+    elif filtered_input == "hello" or filtered_input == "hi" or filtered_input == "hey":
+         print("Hello to you too! (not a number but I appreciate the greeting)")
+         continue
+    elif filtered_input == "carlos" or filtered_input == "toledo":
+        print("Thats a nice name! (not a number though)")
+        continue
+    elif filtered_input == "melissa":
+        print("Thats a pretty name! (not a number though)")
+        continue #general responses to certain inputs, if the user inputs any of these words, it will print a message and continue the loop.
+    elif filtered_input == "28" or filtered_input == "29" or filtered_input == "081010" or filtered_input == "0929" or filtered_input == "0810" or filtered_input == "102824" or filtered_input == "092909":
+        print("Very Special Number.")
+        continue #this is a special case for certain numbers, if the user inputs any of these numbers, it will print a message and continue the loop.
+    elif filtered_input == "flowers" or filtered_input == "flower" or filtered_input == "rose" or filtered_input == "roses" or filtered_input == "tulip" or filtered_input == "tulips" or filtered_input == "daisy" or filtered_input == "daisies" or filtered_input == "horses" or filtered_input == "horse" or filtered_input == "dog" or filtered_input == "dogs" or filtered_input == "cat" or filtered_input == "cats":
+        print("Those are nice! (not a number though)")
+        continue #the above elif statements are just for fun and to make the program more interactive, they are not necessary for the program to function.
+    elif filtered_input == "no" or filtered_input == "nope" or filtered_input == "nah" or filtered_input == "later" or filtered_input == "notatall":
+        print("Okay, I understand you can restart the program when you're ready.")
+        break #this will break the loop if the user inputs any of these words, as they are indicating that they do not want to continue with the program.
+    elif filtered_input == "love" or filtered_input == "family" or filtered_input == "friend" or filtered_input == "friends" or filtered_input == "friendship" or filtered_input == "friendships" or filtered_input == "relationship" or filtered_input == "relationships" or filtered_input == "kindness" or filtered_input == "compassion" or filtered_input == "empathy" or filtered_input == "sympathy" or filtered_input == "generosity" or filtered_input == "gratitude" or filtered_input == "forgiveness" or filtered_input == "patience" or filtered_input == "understanding" or filtered_input == "respect" or filtered_input == "trust" or filtered_input == "loyalty" or filtered_input == "happiness":
+        print("sure is a valueable thing! (not a number though)")
+        continue #this will print a message if the user inputs any of these words, as they are indicating that they do not want to continue with the program.
+    else:
+        ready_input = filtered_input
+
+        for text in filtered_input: #this will loop through each letter in the input and check if it is a letter, if it is, it will print a message and continue the loop.
+            if not text.isdigit():#checks if the character is not a digit, spent a lot of time on this due to my confusion about alphanumeric characters and how to check for them, but this is the correct way to check if a character is a digit or not.
+                ready_input = ready_input.replace(text, '')
+            filtered_input = ready_input
+    try:
+        complex(filtered_input) # this will try to convert the input to a complex number, if it succeeds, it means the input is a number.
+        print(f"'{user_input}' has a number if I've ever seen one.")
+    except ValueError: # after the try statement, if the input is not a number, it will raise a ValueError and the except statement will be executed.   
+        print(f"I am sorry to tell you that '{user_input}' does not have a number") #if the user input is not a number, or accounter for in the above conditions, it will print this message.
