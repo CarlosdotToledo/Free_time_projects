@@ -1,4 +1,4 @@
-# Free_time_projects is a group of small projects that I have worked on in my free time, many of them have halped me learn more about python.
+# Free_time_projects is a group of small projects that I have worked on in my free time, many of them have helped me learn more about python.
 
 First is the Number Detector, I thought it would be too short, but I ended up learning a lot from it and spending a good amount of time, this is the first
 program I have made independently. it taught me how to use: input, isspace,. lower() .upper(), .replace(), complex, except, try, isdigit(), and isalnum();
